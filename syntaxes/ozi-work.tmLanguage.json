@@ -1,0 +1,161 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "ozi-work",
+  "scopeName": "source.ozi-work",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#emails" },
+    { "include": "#booleans" },
+    { "include": "#statuses" },
+    { "include": "#abbreviations" },
+    { "include": "#tags" },
+    { "include": "#passwordPattern" },
+    { "include": "#punctuation" },
+    { "include": "#violet" },
+    { "include": "#entity" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.ozi-work",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.line.double-dash.ozi-work",
+          "match": "--.*$"
+        }
+      ]
+    },
+    "emails": {
+      "patterns": [
+        {
+          "name": "markup.underline.link.email.ozi-work",
+          "match": "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}\\b"
+        }
+      ]
+    },
+    "passwordPattern": {
+      "patterns": [
+        {
+          "name": "keyword.other.password.ozi-work",
+          "match": "\\b\\w+(?=\\s*@pass\\b)"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.ozi-work",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "markup.underline.link.email.ozi-work",
+              "match": "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}\\b"
+            },
+            {
+              "name": "constant.character.escape.ozi-work",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.ozi-work",
+          "begin": "(?<!\\w)'(?!\\w)|(?<!\\w)'(?=\\s)",
+          "end": "'(?!\\w)",
+          "patterns": [
+            {
+              "name": "constant.character.escape.ozi-work",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.ozi-work",
+          "match": "\\b[0-9]+(\\.[0-9]+)?\\b"
+        }
+      ]
+    },
+    "booleans": {
+      "patterns": [
+        {
+          "name": "constant.language.boolean.true.ozi-work",
+          "match": "(?i)\\b(true|ok|good|done|green|yes|passed)\\b",
+          "captures": {
+            "0": {
+              "name": "constant.language.boolean.true.ozi-work"
+            }
+          }
+        },
+        {
+          "name": "constant.language.boolean.false.ozi-work",
+          "match": "(?i)\\b(false|fail|failed|red|error)\\b",
+          "captures": {
+            "0": {
+              "name": "constant.language.boolean.false.ozi-work"
+            }
+          }
+        }
+      ]
+    },
+    "statuses": {
+      "patterns": [
+        {
+          "name": "keyword.other.status.ozi-work",
+          "match": "(?i)\\b(status|error)\\b"
+        }
+      ]
+    },
+    "violet": {
+      "patterns": [
+        {
+          "name": "constant.language.abbreviation.ozi-work",
+          "match": "(?i)\\b(violet)\\b"
+        }
+      ]
+    },
+    "abbreviations": {
+      "patterns": [
+        {
+          "name": "constant.language.abbreviation.ozi-work",
+          "match": "\\b[A-Z\\d]{2,}\\b"
+        }
+      ]
+    },
+    "tags": {
+      "patterns": [
+        {
+          "name": "entity.name.tag.ozi-work",
+          "match": "\\s@[A-Za-z0-9_\\-]+"
+        }
+      ]
+    },
+    "punctuation": {
+      "patterns": [
+        {
+          "name": "punctuation.symbol.ozi-work",
+          "match": "[-,.:;(){}\\[\\]\"']"
+        }
+      ]
+    },
+    "entity": {
+      "patterns": [
+        {
+          "name": "entity.name.label.ozi-work",
+          "match": "^\\s*[^:\\s][^:]*(?=:)"
+        },
+        {
+          "name": "entity.name.label.ozi-work",
+          "match": "(?i)\\b(warning)\\b"
+        }
+      ]
+    }
+  }
+}

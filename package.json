@@ -1,0 +1,81 @@
+{
+  "name": "ozi-highlighting",
+  "displayName": "ozi_highlighting",
+  "description": ".txt",
+  "version": "0.0.1",
+  "publisher": "ozi-dev",
+  "engines": {
+    "vscode": "^1.105.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onCommand:oziWork.insertDateTimeLineAfter",
+    "onCommand:oziWork.insertDateTimeLineBefore"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "ozi-work",
+        "aliases": [
+          "ozi-work",
+          "ozi-work"
+        ],
+        "extensions": [
+          ".txt"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "ozi-work",
+        "scopeName": "source.ozi-work",
+        "path": "./syntaxes/ozi-work.tmLanguage.json"
+      }
+    ],
+    "themes": [
+      {
+        "label": "Ozi Work Theme",
+        "uiTheme": "vs-dark",
+        "path": "./themes/ozi-work-theme.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "oziWork.insertDateTimeLineAfter",
+        "title": "Insert Date Time Line After"
+      },
+      {
+        "command": "oziWork.insertDateTimeLineBefore",
+        "title": "Insert Date Time Line Before"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "oziWork.insertDateTimeLineAfter",
+        "key": "alt+enter",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "oziWork.insertDateTimeLineBefore",
+        "key": "shift+alt+enter",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configurationDefaults": {
+      "[ozi-work]": {
+        "editor.quickSuggestions": false,
+        "editor.suggestOnTriggerCharacters": false,
+        "editor.parameterHints.enabled": false,
+        "editor.wordBasedSuggestions": false
+      }
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/ozinka/ozi-syntax.git"
+    }
+  }
+}
